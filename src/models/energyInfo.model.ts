@@ -8,3 +8,11 @@ export interface EnergyInfo {
         }>;
     }>;
 }
+
+export interface DailyData {
+    date: string;
+    averageEcoFuelUsage: {
+        [fuel: string]: number;
+    };
+    totalEcoPercentage: number;
+}

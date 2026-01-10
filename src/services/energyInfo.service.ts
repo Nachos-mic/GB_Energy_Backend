@@ -1,6 +1,5 @@
 import axios from "axios";
 import {EnergyInfo} from "../models/energyInfo.model";
-import {ChargeWindowModel} from "../models/chargeWindow.model";
 
 class EnergyInfoService {
 
@@ -9,6 +8,12 @@ class EnergyInfoService {
 
     public convertToISO(date: Date): string {
         return date.toISOString().split('.')[0] + 'Z';
+    }
+
+    public transformData(data: any): any {
+
+
+        return data;
     }
 
     public async fetchThreeDaysGeneration() {
@@ -29,7 +34,8 @@ class EnergyInfoService {
                 `https://api.carbonintensity.org.uk/generation/${from}/${to}`
             );
 
-            return response.data;
+        return this.transformData(response);
+
         } catch (error) {
             console.error('Error fetching:', error);
             throw error;
