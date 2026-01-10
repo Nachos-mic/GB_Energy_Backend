@@ -1,18 +1,20 @@
+export interface GenerationMixItem {
+    fuel: string;
+    perc: number;
+}
+
+export interface EnergyInterval {
+    from: string;
+    to: string;
+    generationmix: GenerationMixItem[];
+}
+
 export interface EnergyInfo {
-    data: Array<{
-        from: string;
-        to: string;
-        generationmix: Array<{
-            fuel: string;
-            perc: number;
-        }>;
-    }>;
+    data: EnergyInterval[];
 }
 
 export interface DailyData {
     date: string;
-    averageEcoFuelUsage: {
-        [fuel: string]: number;
-    };
-    totalEcoPercentage: number;
+    averageFuelUsage: Record<string, number>;
+    totalCleanEnergyPercentage: number;
 }

@@ -19,8 +19,8 @@ class EnergyInfoController implements Controller {
 
     private getData = async (request: Request, response: Response): Promise<void> => {
         try {
-            const words = await this.energyInfoService.fetchThreeDaysGeneration();
-            response.status(200).json(words);
+            const data = await this.energyInfoService.fetchThreeDaysGeneration();
+            response.status(200).json(data);
         } catch (error: any) {
             console.error('Błąd podczas pobierania danych:', error);
             response.status(500).json({ error: error.message || 'Wystąpił błąd podczas pobierania danych' });
