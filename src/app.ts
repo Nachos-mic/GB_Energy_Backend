@@ -2,7 +2,7 @@ import {config} from "./config";
 import express from 'express';
 import http from 'http';
 import {Server} from 'socket.io';
-import Controller from "../interfaces/controller.interface";
+import Controller from "./interfaces/controller.interface";
 import cors from 'cors';
 import morgan from 'morgan';
 
@@ -16,7 +16,7 @@ class App {
         this.httpServer = http.createServer(this.app);
         this.io = new Server(this.httpServer, {
             cors: {
-                origin: 'http://localhost:3100',
+                origin: `http://localhost:${config.port}`,
                 methods: ['GET'],
             },
         });

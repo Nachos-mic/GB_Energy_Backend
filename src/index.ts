@@ -1,14 +1,11 @@
 import App from "./app"
-import ProductController from "../controllers/product.controller";
+import EnergyInfoController from "./controllers/energyInfo.controller";
 
-const productController = new ProductController();
-const blacklistController = new BlacklistController();
-
+const energyInfoController = new EnergyInfoController();
 
 const app = new App(
     [
-        blacklistController,
-        productController
+        energyInfoController
     ]
 );
 

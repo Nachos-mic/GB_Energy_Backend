@@ -1,5 +1,6 @@
 import axios from "axios";
 import {EnergyInfo} from "../models/energyInfo.model";
+import {ChargeWindowModel} from "../models/chargeWindow.model";
 
 class EnergyInfoService {
 
@@ -29,6 +30,17 @@ class EnergyInfoService {
             );
 
             return response.data;
+        } catch (error) {
+            console.error('Error fetching:', error);
+            throw error;
+        }
+    }
+
+    public async calculateBestTimeWindow(time_window: string) {
+        try {
+
+
+            return 0;
         } catch (error) {
             console.error('Error fetching:', error);
             throw error;
