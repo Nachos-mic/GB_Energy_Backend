@@ -1,12 +1,10 @@
-export interface GenerationMixItem {
-    fuel: string;
-    perc: number;
-}
-
 export interface EnergyInterval {
     from: string;
     to: string;
-    generationmix: GenerationMixItem[];
+    generationmix: {
+        fuel: string;
+        perc: number;
+    }[];
 }
 
 export interface EnergyInfo {
@@ -17,4 +15,10 @@ export interface DailyData {
     date: string;
     averageFuelUsage: Record<string, number>;
     totalCleanEnergyPercentage: number;
+}
+
+export interface BestChargingWindow {
+    start: string;
+    end: string;
+    percentage: number;
 }

@@ -11,8 +11,8 @@ class EnergyInfoController {
         this.router = (0, express_1.Router)();
         this.getData = async (request, response) => {
             try {
-                const words = await this.energyInfoService.fetchThreeDaysGeneration();
-                response.status(200).json(words);
+                const data = await this.energyInfoService.getGenerationMixData();
+                response.status(200).json(data);
             }
             catch (error) {
                 console.error('Błąd podczas pobierania danych:', error);
@@ -38,8 +38,8 @@ class EnergyInfoController {
         this.initializeRoutes();
     }
     initializeRoutes() {
-        this.router.get(`${this.main_path}/data`, this.getData);
-        this.router.get(`${this.main_path}/charge-window/:time_window`, this.getBestChargeWindow);
+        this.router.get(`${this.main_path}/generation-mix`, this.getData); //endpoint do pobierania danych z trzech dni
+        this.router.get(`${this.main_path}/charge-window/:time_window`, this.getBestChargeWindow); //endpoint do pobierania danych o oknie ładowania
     }
 }
 exports.default = EnergyInfoController;

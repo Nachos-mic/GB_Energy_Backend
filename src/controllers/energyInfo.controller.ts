@@ -13,13 +13,13 @@ class EnergyInfoController implements Controller {
     }
 
     private initializeRoutes(): void {
-        this.router.get(`${this.main_path}/data`, this.getData);
-        this.router.get(`${this.main_path}/charge-window/:time_window`, this.getBestChargeWindow);
+        this.router.get(`${this.main_path}/generation-mix`, this.getData); //endpoint do pobierania danych z trzech dni
+        this.router.get(`${this.main_path}/charge-window/:time_window`, this.getBestChargeWindow); //endpoint do pobierania danych o oknie ładowania
     }
 
     private getData = async (request: Request, response: Response): Promise<void> => {
         try {
-            const data = await this.energyInfoService.fetchThreeDaysGeneration();
+            const data = await this.energyInfoService.getGenerationMixData();
             response.status(200).json(data);
         } catch (error: any) {
             console.error('Błąd podczas pobierania danych:', error);

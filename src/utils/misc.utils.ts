@@ -1,0 +1,1 @@
+export const cleanFuels = ["solar", "wind", "hydro", "biomass", "nuclear"]; //Lista "czystych" paliw do obliczania procentowego udziału
