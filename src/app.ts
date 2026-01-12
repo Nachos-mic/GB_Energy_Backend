@@ -16,18 +16,21 @@ class App {
         this.httpServer = http.createServer(this.app);
         this.io = new Server(this.httpServer, {
             cors: {
-                origin: `http://localhost:${config.port}`,
-                methods: ['GET'],
+                origin: config.frontendUrl,
+                methods: ['GET', 'POST'],
+                credentials: true
             },
         });
-
         this.initializeMiddlewares();
         this.initializeControllers(controllers);
     }
 
     private initializeMiddlewares() {
         this.app.use(express.json());
-        this.app.use(cors());
+        this.app.use(cors({
+            origin: config.frontendUrl,
+            credentials: true
+        }));
         this.app.use(morgan('dev'));
     }
 

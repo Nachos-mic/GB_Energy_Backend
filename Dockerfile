@@ -4,14 +4,16 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-
 COPY package*.json ./
 
-RUN npm ci --only=production
+RUN npm ci
 
-COPY .. .
+COPY . .
 
 RUN npm run build
+
+#Usuwanie dev-dependencies
+RUN npm prune --production
 
 EXPOSE 3100
 
