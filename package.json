@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "nodemon --exec ts-node src/index.ts",
     "start": "ts-node src/index.ts",
     "build": "tsc"
@@ -21,11 +21,14 @@
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
     "@types/morgan": "^1.9.10",
     "@types/node": "^25.0.5",
+    "jest": "^30.2.0",
     "morgan": "^1.10.1",
     "nodemon": "^3.1.11",
     "socket.io": "^4.8.3",
+    "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
