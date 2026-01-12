@@ -1,5 +1,3 @@
-LABEL authors="Nachos-mic"
-
 FROM node:18-alpine
 
 WORKDIR /app
